@@ -1,0 +1,38 @@
+name: Deploy Frontends (Vercel)
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy-candidate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install Vercel CLI
+        run: npm i -g vercel
+      - name: Deploy Candidate Frontend
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_CANDIDATE }}
+        run: vercel deploy --prod --cwd candidate_frontend --token $VERCEL_TOKEN --scope $VERCEL_ORG_ID
+
+  deploy-company:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install Vercel CLI
+        run: npm i -g vercel
+      - name: Deploy Company Frontend
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_COMPANY }}
+        run: vercel deploy --prod --cwd front --token $VERCEL_TOKEN --scope $VERCEL_ORG_ID
