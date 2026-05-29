@@ -25,7 +25,13 @@ DEBUG = os.getenv('DEBUG', 'false').lower() == 'true'
 FRONTEND_URL = os.getenv('FRONTEND_URL', 'http://10.130.246.205:3000')
 
 # SECURITY: Restrict to actual hosts (no wildcard)
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1,0.0.0.0,192.168.1.40,192.168.1.46').split(',')
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    '10.130.246.205',
+    '192.168.1.36',
+    '90b3-114-142-164-87.ngrok-free.app',
+]
 
 # Application definition
 INSTALLED_APPS = [
@@ -155,7 +161,7 @@ CELERY_TIMEZONE = TIME_ZONE
 # ========================================
 # SECURITY: Only allow specific origins (no wildcard)
 # CORS_ALLOW_ALL_ORIGINS = True  # Removed to avoid overriding CORS_ALLOWED_ORIGINS
-CORS_ALLOW_ALL_ORIGINS = DEBUG  # Only allow all origins in local dev mode
+CORS_ALLOW_ALL_ORIGINS = True  # Enabled for local tunnel
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
@@ -163,7 +169,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
     "http://127.0.0.1:3001",
     "http://192.168.1.36:3000",
-    "http://192.168.1.36:5173", # Vite default port
+    "http://192.168.1.36:5173",
     "http://192.168.1.43:8000",
     "http://192.168.1.52:3000",
     "http://192.168.1.37:3000", 
@@ -174,6 +180,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://192.168.1.46:3000",
     "http://192.168.1.46:5173",
     "http://192.168.1.46:8000",
+    "https://90b3-114-142-164-87.ngrok-free.app",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
@@ -193,6 +200,7 @@ CSRF_TRUSTED_ORIGINS = [
     "http://192.168.1.46:3000",
     "http://192.168.1.46:5173",
     "http://192.168.1.46:8000",
+    "https://90b3-114-142-164-87.ngrok-free.app",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
