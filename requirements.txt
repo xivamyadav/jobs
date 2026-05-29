@@ -1,0 +1,15 @@
+Django==4.2.30
+djangorestframework==3.14.0
+djangorestframework-simplejwt==5.5.1
+django-cors-headers==4.3.1
+django-filter==24.1
+Pillow>=10.4.0
+python-dotenv>=1.0.0
+python-decouple==3.8
+mysql-connector-python==8.3.0
+google-auth==2.49.2
+requests==2.33.1
+celery>=5.3.6
+redis>=5.0.0
+daphne>=4.1.0
+channels>=4.0.0

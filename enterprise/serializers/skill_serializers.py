@@ -1,0 +1,8 @@
+from rest_framework import serializers
+from enterprise.models import Skill
+
+
+class SkillSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Skill
+        fields = ['skill_id', 'skill_name']
