@@ -30,7 +30,7 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     '10.130.246.205',
     '192.168.1.36',
-    '90b3-114-142-164-87.ngrok-free.app',
+    'e3ee-114-142-164-87.ngrok-free.app',
 ]
 
 # Application definition
@@ -180,7 +180,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://192.168.1.46:3000",
     "http://192.168.1.46:5173",
     "http://192.168.1.46:8000",
-    "https://90b3-114-142-164-87.ngrok-free.app",
+    "https://e3ee-114-142-164-87.ngrok-free.app",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
@@ -200,7 +200,7 @@ CSRF_TRUSTED_ORIGINS = [
     "http://192.168.1.46:3000",
     "http://192.168.1.46:5173",
     "http://192.168.1.46:8000",
-    "https://90b3-114-142-164-87.ngrok-free.app",
+    "https://e3ee-114-142-164-87.ngrok-free.app",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
