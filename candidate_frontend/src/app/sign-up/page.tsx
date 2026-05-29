@@ -7,6 +7,8 @@ import Image from "next/image";
 import { GoogleLogin } from "@react-oauth/google";
 import { fetchSignup, SignupPayload } from "@/apis/user";
 
+const googleClientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID?.trim();
+
 export default function SignupPage() {
     const router = useRouter();
 
@@ -199,11 +201,11 @@ export default function SignupPage() {
                         </span>
                     </p>
 
-                    {/* Google */}
-                    <div className="flex justify-center mt-4">
-                        <GoogleLogin
-                        />
-                    </div>
+                    {googleClientId ? (
+                        <div className="flex justify-center mt-4">
+                            <GoogleLogin />
+                        </div>
+                    ) : null}
 
                 </div>
             </div>

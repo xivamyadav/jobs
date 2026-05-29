@@ -22,6 +22,8 @@ export const metadata: Metadata = {
   description: "",
 };
 
+const googleClientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID?.trim();
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -32,11 +34,17 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID || ""}>
+        {googleClientId ? (
+          <GoogleOAuthProvider clientId={googleClientId}>
+            <AuthProvider>
+              {children}
+            </AuthProvider>
+          </GoogleOAuthProvider>
+        ) : (
           <AuthProvider>
             {children}
           </AuthProvider>
-        </GoogleOAuthProvider>
+        )}
         <Toaster />
       </body>
     </html>
